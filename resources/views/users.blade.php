@@ -1,5 +1,27 @@
 <h1>User page</h1>
 
-<h3>Hello {{ $user  }}</h3>
+<table border="1px solid balck" cellpadding="10px" cellspacing="0px">
+    <tr> <th> id</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>City</th>
+        <th>Operation</th>
+    </tr>
+  
+    @foreach ($user as $key => $value )
+    <tr>
+            <td>{{ $key }} </td>
+            <td> {{ $value['name'] }} </td>
+            <td> {{ $value['phone'] }} </td>
+            <td>{{ $value['city'] }} </td>
+            <td><a href="{{ route('view.user', $key) }}">show</a></td>
+        </tr>
+ @endforeach
 
-<h3> City : {{  !empty($city) ? $city : 'no city ' }}</h3>
+</table>
+
+
+{{-- 
+ @foreach ($user as $key => $value )
+        <h3>{{ $key }}  {{ $value['name'] }} | {{ $value['phone'] }} | {{ $value['city'] }} |</h3>
+ @endforeach --}}
